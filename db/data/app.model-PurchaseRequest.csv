@@ -1,0 +1,2 @@
+ID,requestType_requestType,requester_userName,approvalProfile_approvalProfile,status,rejectReason,totalAmount,currency,product_product
+c481d1f3-4c37-4180-a064-48e2a2028104,Office,member1,DefaultProfile,NEW,,10.00,EUR,Pen

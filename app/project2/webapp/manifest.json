@@ -1,0 +1,201 @@
+{
+  "_version": "1.76.0",
+  "sap.app": {
+    "id": "app.purchase.approver.project2",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.19.6",
+      "toolsId": "eb5c6eb9-6202-44e4-85f3-a2dd41dab743"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/purchase/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.143.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "app.purchase.approver.project2.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ApproverRequestsList",
+          "target": "ApproverRequestsList"
+        },
+        {
+          "pattern": "ApproverRequests({key}):?query:",
+          "name": "ApproverRequestsObjectPage",
+          "target": "ApproverRequestsObjectPage"
+        },
+        {
+          "pattern": "ApproverRequests({key})/rates({key2}):?query:",
+          "name": "PurchaseRequestCurrencyObjectPage",
+          "target": "PurchaseRequestCurrencyObjectPage"
+        }
+      ],
+      "extends": {
+        "extensions": {
+          "sap.ui.controllerExtensions": {
+            "sap.fe.templates.ObjectPage.ObjectPageController": {
+              "controllerName": "app.purchase.approver.project2.ext.controller.ObjectPageExt"
+            }
+          }
+        }
+      },
+      "targets": {
+        "ApproverRequestsList": {
+          "type": "Component",
+          "id": "ApproverRequestsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ApproverRequests",
+              "variantManagement": "Page",
+              "navigation": {
+                "ApproverRequests": {
+                  "detail": {
+                    "route": "ApproverRequestsObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ApproverRequestsObjectPage": {
+          "type": "Component",
+          "id": "ApproverRequestsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/ApproverRequests",
+              "navigation": {
+                "rates": {
+                  "detail": {
+                    "route": "PurchaseRequestCurrencyObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.FieldGroup#GeneratedGroup": {
+                  "actions": {
+                    "DataFieldForAction::PurchaseService.EntityContainer::Reject": {
+                      "afterExecution": {
+                        "navigateToInstance": true
+                      }
+                    }
+                  }
+                }
+              },
+              "content": {
+                "footer": {
+                  "actions": {
+                    "DataFieldForAction::PurchaseService.Approve": {
+                      "afterExecution": {
+                        "navigateToInstance": true,
+                        "enableAutoScroll": true
+                      }
+                    },
+                    "DataFieldForAction::PurchaseService.Reject": {
+                      "afterExecution": {
+                        "navigateToInstance": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "PurchaseRequestCurrencyObjectPage": {
+          "type": "Component",
+          "id": "PurchaseRequestCurrencyObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/ApproverRequests/rates"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

@@ -1,0 +1,34 @@
+specVersion: "4.0"
+metadata:
+  name: app.purchase.approver.project2
+
+type: application
+
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://sapui5.hana.ondemand.com
+        backend:
+          - path: /odata/v4/purchase
+            url: http://localhost:4004
+        auth:
+          form: true              # включаем mock login
+
+    - name: fiori-tools-appreload
+      afterMiddleware: fiori-tools-proxy
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        flp:
+          theme: sap_horizon

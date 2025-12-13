@@ -1,0 +1,17 @@
+{
+  "cds": {
+    "auth": {
+      "kind": "basic",
+      "users": {
+        "requester": {
+          "password": "1234",
+          "roles": ["requester"]
+        },
+        "approver": {
+          "password": "1234",
+          "roles": ["approver"]
+        }
+      }
+    }
+  }
+}
