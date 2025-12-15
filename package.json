@@ -1,7 +1,7 @@
 {
   "name": "cap_hope",
   "version": "1.0.0",
-  "description": "A simple CAP project.",
+  "private": true,
   "dependencies": {
     "@sap/cds": "^9",
     "express": "^4"
@@ -10,34 +10,32 @@
     "@cap-js/sqlite": "^2",
     "cds-plugin-ui5": "^0.13.0"
   },
-
   "scripts": {
     "start": "cds-serve",
     "watch-project1": "cds watch --open app.purchase.purchaseapp.project1/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-project2": "cds watch --open app.purchase.approver.project2/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
-
-  "private": true,
-
-  "workspaces": [
-    "app/*"
-  ],
-
-  "sapux": [
-    "app/project1",
-    "app/project2"
-  ],
-
+  
   "cds": {
-    "security": {
-      "roles": {
-        "requester": {
-          "description": "User who can create purchase requests"
-        },
-        "approver": {
-          "description": "User who can approve purchase requests"
+    "requires": {
+      "auth": {
+        "kind": "basic",
+        "users": {
+          "requester": {
+            "password": "1234",
+            "roles": ["requester"]
+          },
+          "approver": {
+            "password": "1234",
+            "roles": ["approver"]
+          },
+          "admin": {
+            "password": "1234",
+            "roles": ["requester", "approver"]
+          }
         }
       }
     }
   }
 }
+
