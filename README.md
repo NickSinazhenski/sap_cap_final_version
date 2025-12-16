@@ -1,7 +1,7 @@
 # Purchase Requests Management System (SAP CAP)
 
-This is a training project built with **SAP Cloud Application Programming Model (CAP)** and **SAP Fiori Elements**.  
-The application manages purchase requests with draft support, composition, and an approval workflow.
+This is a training project built with **SAP CAP** and **SAP Fiori Elements**.  
+The application manages purchase requests and an approval workflow.
 
 ---
 
@@ -21,8 +21,6 @@ srv/
 - service.js — service implementation  
 - handlers/ — business logic (read, create, update, approve, reject)  
 
-package.json  
-README.md  
 
 ---
 
@@ -36,50 +34,41 @@ README.md
 - rejectReason
 - totalAmount
 - currency
+- ptoduct
 - rates (Composition → PurchaseRequestCurrency)
 
 ### PurchaseRequestCurrency (Composition)
-- ID
 - currency
-- amount
 - parent (PurchaseRequest)
-
----
-
-## Key Features
-
-- SAP Fiori Elements List Report and Object Page
-- Draft handling using `@odata.draft.enabled`
-- Composition handling
-- Role-based behavior (requester / approver)
-- Custom OData actions:
-  - CreateRequest
-  - UpdateRequest
-  - DeleteRequest
-  - Approve
-  - Reject
-  - ChangeStatus
+- amount
 
 ---
 
 ## How to Run the Project
 
-
-
-
+```bash
+git clone 
+```
 ```bash
 npm install
-
+```
+```bash
 cds watch
-
+```
 - CAP Backend
+```bash
 http://localhost:4004
+```
+- requester view
 
-- Fiori Application
- -requester 
+```bash
 http://localhost:4004/app.purchase.purchaseapp.project1/index.html
- -approver 
+```
+ - approver view
+```bash
 http://localhost:4004/app.purchase.approver.project2/index.html
+```
+
 
 
 
