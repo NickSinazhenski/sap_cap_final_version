@@ -1,7 +1,5 @@
 const cds = require('@sap/cds');
-
 const { validateRejectReason } = require('../utils/helpers');
-
 const { PurchaseRequest } = cds.entities('app.model');
 
 exports.approve = async (req) => {
@@ -17,6 +15,6 @@ exports.reject = async (req) => {
   return (
     (await UPDATE(PurchaseRequest)
       .set({ status: 'REJECTED', rejectReason: reason })
-      .where({ ID: id })) === 1
+      .where({ ID: id }))
   );
 };

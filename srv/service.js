@@ -3,7 +3,7 @@ const { SELECT } = cds.ql;
 const { ensureNew } = require('../srv/utils/helpers');
 const requestHandler = require('./handlers/request');
 const approveHandler = require('./handlers/approve');
-const readBeforeHandler = require('./handlers/read');
+const userPreferencesHandler = require('./handlers/read');
 
 const { PurchaseRequestCurrency, PurchaseRequest, RequestTypeProducts, ApproverRequests, Users } =
   cds.entities('app.model');
@@ -17,8 +17,8 @@ module.exports = cds.service.impl(async function () {
       const requestType = req.data.requestType_requestType;
       const product = req.data.product_product;
 
-      if (!requestType) req.error(400, 'Request Type is required');
-      if (!product) req.error(400, 'Product is required');
+      if (!requestType) req.error('Request Type is required');
+      if (!product) req.error('Product is required');
 
       const enriched = await requestHandler.getProductInfo(requestType, product, req.user.id);
 
@@ -77,8 +77,9 @@ module.exports = cds.service.impl(async function () {
 
     return row;
   });
-
-  this.on('Approve', 'ApproverRequests', async (req) => {
+  // Actions for approver
+  const { ApproverRequests } = this.entities;
+  this.on('Approve', ApproverRequests, async (req) => {
     const id = req.params[0].ID;
 
     return approveHandler.approve({
@@ -88,7 +89,7 @@ module.exports = cds.service.impl(async function () {
     });
   });
 
-  this.on('Reject', 'ApproverRequests', async (req) => {
+  this.on('Reject', ApproverRequests, async (req) => {
     const id = req.params[0].ID;
     const { reason } = req.data;
 
@@ -100,7 +101,7 @@ module.exports = cds.service.impl(async function () {
   });
 
   // READ for Approver
-  this.after('READ', 'ApproverRequests', async (data, req) => {
-    await readBeforeHandler(data, req);
+  this.after('READ', ApproverRequests, async (data, req) => {
+    await userPreferencesHandler(data, req);
   });
 });

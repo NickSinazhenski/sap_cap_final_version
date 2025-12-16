@@ -4,7 +4,7 @@ const { convert } = require('../utils/currencyApi');
 const { checkProductAllowed } = require('../utils/helpers');
 
 module.exports = {
-  //  Рассчитываем сумму, валюту, USD, профиль
+  //  Рассчитываем сумму, валюту в USD, профиль
   async getProductInfo(requestType, product, userId) {
     const { ApprovalProfileSetting } = cds.entities('app.model');
 
@@ -20,12 +20,12 @@ module.exports = {
       requester_userName: userId,
       totalAmount: amountBase,
       currency: prod.currency,
-      approvalProfile_approvalProfile: profile?.approvalProfile ?? null,
+      approvalProfile_approvalProfile: profile?.approvalProfile,
       _calcUSD: amountUSD,
     };
   },
 
-  // Перезаписываем валюты: USD
+  // Перезаписываем валюты
   async replaceCurrencytWithUsd(requestId, currency, amountBase, amountUSD) {
     const { PurchaseRequestCurrency } = cds.entities('app.model');
     await DELETE.from(PurchaseRequestCurrency).where({ parent_ID: requestId });
@@ -41,10 +41,8 @@ module.exports = {
     const existing = await SELECT.one.from(PurchaseRequest).where({ ID: id });
     if (!existing) {
       const err = new Error('Request not found');
-      err.status = 404;
       throw err;
     }
-
     return existing;
   },
 };

@@ -2,7 +2,6 @@ using app.model as db from '../db/schema.cds';
 
 @requires: 'authenticated-user'
 service PurchaseService {
-
   entity Product                as projection on db.Product;
   entity Users                  as projection on db.Users;
   entity RequestType             as projection on db.RequestType;
@@ -44,17 +43,9 @@ service PurchaseService {
 
   extend entity ApproverRequests with actions {
 
-    @Common.SideEffects: {
-      TargetEntities: ['ApproverRequests']
-    }
     action Approve() returns Boolean;
 
-    @Common.SideEffects: {
-      TargetEntities: ['ApproverRequests']
-    }
-    action Reject(
-      reason : String
-    ) returns Boolean;
+    action Reject( reason : String) returns Boolean;
   };
 
 }

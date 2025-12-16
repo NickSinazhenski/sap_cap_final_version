@@ -1,5 +1,4 @@
 using { managed } from '@sap/cds/common';
-
 namespace app.model;
 
 
@@ -64,10 +63,9 @@ entity PurchaseRequest : managed {
       
 }
 
-entity PurchaseRequestCurrency {
-      key ID     : UUID ;   
-      parent : Association to PurchaseRequest;
-      currency : String(3);
+entity PurchaseRequestCurrency { 
+    key  parent : Association to PurchaseRequest;
+    key  currency : String(3);
       amount   : Decimal(15,2);
 }
 

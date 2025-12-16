@@ -1,7 +1,7 @@
 const cds = require('@sap/cds');
 const { SELECT } = cds.ql;
 
-module.exports = async function readBefore(data, req) {
+module.exports = async function userPreferences(data, req) {
   const { Users, PurchaseRequestCurrency } = cds.entities('app.model');
 
   const rows = Array.isArray(data) ? data : [data];

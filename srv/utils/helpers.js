@@ -3,17 +3,14 @@ const cds = require('@sap/cds');
 const { SELECT } = cds.ql;
 
 exports.ensureNew = (request, req) => {
-  if (request.status !== 'NEW') req.error(400, 'Only NEW requests can be modified');
+  if (request.status !== 'NEW') req.error('Only NEW requests can be modified');
 };
 
 exports.validateRejectReason = (reason, req) => {
   if (!reason || reason.trim().length < 3)
-    req.error(400, 'Reject reason must be at least 3 symbols');
+    req.error('Reject reason must be at least 3 symbols');
 };
 
-exports.validateProductExists = (prod, req) => {
-  if (!prod) req.error(400, 'ProductNotFound or invalid name');
-};
 
 exports.checkProductAllowed = async function (requestType, product) {
   const { Product, RequestTypeProducts } = cds.entities('app.model');
