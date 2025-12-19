@@ -66,7 +66,7 @@ module.exports = cds.service.impl(async function () {
   });
 
   this.after('UPDATE', PurchaseRequests, async (data, req) => {
-    const row = Array.isArray(data) ? data[0] : data;
+    const row =  data;
 
     await requestHandler.replaceCurrencytWithUsd(
       row.ID,
@@ -84,7 +84,6 @@ module.exports = cds.service.impl(async function () {
 
     return approveHandler.approve({
       data: { id },
-      user: req.user,
       error: req.error.bind(req),
     });
   });
@@ -95,7 +94,6 @@ module.exports = cds.service.impl(async function () {
 
     return approveHandler.reject({
       data: { id, reason },
-      user: req.user,
       error: req.error.bind(req),
     });
   });

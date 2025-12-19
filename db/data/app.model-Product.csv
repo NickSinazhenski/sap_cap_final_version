@@ -1,3 +1,43 @@
 product,productGroup_productGroup,price,currency,unitOfMesure
-Pen,Office,1.50,EUR,pcs
-Laptop,IT,1200.00,EUR,pcs
+Laptop Dell Latitude 5440 14 inches,IT Hardware,1350,EUR,pcs
+MacBook Pro M3 14 inches 1TB,IT Hardware,2200,EUR,pcs
+24 inches Monitor Dell P2422H,IT Hardware,280,EUR,pcs
+USB-C Docking Station Dell WD19,IT Hardware,190,EUR,pcs
+Wireless Keyboard Logitech MX Keys,IT Hardware,120,EUR,pcs
+Wireless Mouse Logitech MX Master 3,IT Hardware,110,EUR,pcs
+Noise Cancelling Headset Sony WH-1000XM5,IT Hardware,320,EUR,pcs
+External SSD 1TB Samsung T7,IT Hardware,150,EUR,pcs
+
+Microsoft 365 Business Premium License,IT Software & Licenses,18,EUR,user/month
+JetBrains All Products Pack License,IT Software & Licenses,29,EUR,user/month
+Jira Software Cloud Standard License,IT Software & Licenses,8,EUR,user/month
+Confluence Cloud Standard License,IT Software & Licenses,6,EUR,user/month
+Adobe Creative Cloud License,IT Software & Licenses,60,EUR,user/month
+Windows 11 Pro License,IT Software & Licenses,180,EUR,license
+Antivirus Endpoint Protection License,IT Software & Licenses,45,EUR,user/year
+
+A4 Printer Paper Pack Navigator,Office Supplies,6,EUR,pack
+Ink Cartridge Black HP Original,Office Supplies,35,EUR,pcs
+Ink Cartridge Color HP Original,Office Supplies,45,EUR,pcs
+Ballpoint Pens Set Parker,Office Supplies,8,EUR,set
+Notebook A5 Moleskine,Office Supplies,4,EUR,pcs
+Sticky Notes Pack Post-it,Office Supplies,5,EUR,pack
+Shredder Machine Fellowes,Office Supplies,120,EUR,pcs
+
+Desk Organizer IKEA,Furniture,12,EUR,pcs
+Office Desk Adjustable IKEA Bekant, Furniture,420,EUR,pcs
+Ergonomic Office Chair Herman Miller Aeron, Furniture,550,EUR,pcs
+Meeting Room Table IKEA Lisabo, Furniture,1200,EUR,pcs
+Office Cabinet IKEA, Furniture,260,EUR,pcs
+Bookshelf IKEA Billy, Furniture,180,EUR,pcs
+Desk Lamp LED Philips, Furniture,75,EUR,pcs
+Visitor Chair IKEA Markus, Furniture,140,EUR,pcs
+
+Cisco Gigabit Switch 24-port,Networking Hardware,680,EUR,pcs
+Wireless Access Point Ubiquiti UniFi U6,Networking Hardware,190,EUR,pcs
+Enterprise Router Cisco ISR 4000 Series,Networking Hardware,1450,EUR,pcs
+Network Firewall Appliance Fortinet FortiGate 60F,Networking Hardware,2100,EUR,pcs
+Ethernet Cable Cat6 10m UTP,Networking Hardware,12,EUR,pcs
+Network Rack Cabinet 19 inches 42U,Networking Hardware,850,EUR,pcs
+SFP Module 1Gb Cisco Compatible,Networking Hardware,90,EUR,pcs
+UPS APC 1500VA,Networking Hardware,620,EUR,pcs

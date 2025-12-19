@@ -12,9 +12,7 @@ exports.reject = async (req) => {
   const { id, reason } = req.data;
   validateRejectReason(reason, req);
 
-  return (
-    (await UPDATE(PurchaseRequest)
-      .set({ status: 'REJECTED', rejectReason: reason })
-      .where({ ID: id }))
-  );
+  return await UPDATE(PurchaseRequest)
+    .set({ status: 'REJECTED', rejectReason: reason })
+    .where({ ID: id });
 };

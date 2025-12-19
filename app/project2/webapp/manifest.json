@@ -165,13 +165,13 @@
                   "actions": {
                     "DataFieldForAction::PurchaseService.Approve": {
                       "afterExecution": {
-                        "navigateToInstance": true,
+                        "navigateToInstance": false,
                         "enableAutoScroll": true
                       }
                     },
                     "DataFieldForAction::PurchaseService.Reject": {
                       "afterExecution": {
-                        "navigateToInstance": true
+                        "navigateToInstance": false
                       }
                     }
                   }

@@ -1,2 +1,7 @@
 ID,requestType_requestType,requester_userName,approvalProfile_approvalProfile,status,rejectReason,totalAmount,currency,product_product
-c481d1f3-4c37-4180-a064-48e2a2028104,Office,member1,DefaultProfile,NEW,,10.00,EUR,Pen
+c481d1f3-4c37-4180-a064-48e2a2028104,Office Supplies,member1,DefaultProfile,NEW,,10.00,EUR,Ballpoint Pens Set Parker
+a2b7f9c1-91a4-4b3e-9d6f-1f8c8b6e1201,IT Hardware,member1,DefaultProfile,NEW,,1350.00,EUR,Laptop Dell Latitude 5440 14 inches
+e9d3a44e-6c2b-4f8e-8b91-2f0b5f9a33a2,IT Hardware,member1,ITProfile,NEW,,280.00,EUR,24 inches Monitor Dell P2422H
+b7c8e1aa-55f9-4e12-9b63-9a91c8d1f450,Networking Hardware,member1,SecurityProfile,NEW,,2100.00,EUR,Network Firewall Appliance Fortinet FortiGate 60F
+f3d91a2c-2c3f-4f44-b4c4-8a8c0b77e912,Furniture,member1,DefaultProfile,NEW,,75.00,EUR,Desk Lamp LED Philips
+d6a4b2c9-8f91-4b99-bd34-7a8f91c3a701,IT Software & Licenses,member1,ITProfile,NEW,,29.00,EUR,JetBrains All Products Pack License

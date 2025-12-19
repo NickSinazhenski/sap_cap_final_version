@@ -1,7 +1,6 @@
 using PurchaseService as service from '../../srv/service';
 
 /* List Report                                           */
-
 annotate service.PurchaseRequests with @(
 
   UI.LineItem : [
@@ -146,12 +145,15 @@ annotate service.PurchaseRequests with {
     Common.ValueListWithFixedValues : true
   );
 };
+annotate service.PurchaseRequests with {
+  product @Common.Label : 'Product (select Request Type first)';
+};
+annotate service.PurchaseRequests with {
+  requestType @Common.FieldControl : #Mandatory;
+};
 
 /* Field Control                                         */
 
-annotate service.RequesterRequests with {
-  status @Common.FieldControl : 1;
-};
 
 annotate service.PurchaseRequests with {
   status        @Common.FieldControl : #ReadOnly;
@@ -171,3 +173,69 @@ annotate service.PurchaseRequests with @(
     }
   }
 );
+
+annotate service.PurchaseRequests with @(
+
+  UI.DeleteHidden : {
+    $edmJson : {
+      $Ne : [
+        { $Path : 'status' },
+        'NEW'
+      ]
+    }
+  }
+);
+annotate service.PurchaseRequests with @(
+
+  UI.UpdateHidden : {
+    $edmJson : {
+      $Ne : [
+        { $Path : 'status' },
+        'NEW'
+      ]
+    }
+  }
+);
+
+annotate service.PurchaseRequests with {
+  rejectReason @(
+    UI.Hidden : {
+      $edmJson : {
+        $Eq : [
+          { $Path : 'status' },
+          'NEW'
+        ]
+      }
+    },
+    UI.DataField : {
+      Label : 'Reject Reason'
+    }
+  );
+};
+annotate service.PurchaseRequests with @(
+  UI.SelectionFields : [
+    status
+  ]
+);
+annotate service.PurchaseRequests with {
+  status      @Common.Label : 'Status';
+};
+annotate service.PurchaseRequests with {
+  status @(
+
+    Common.ValueList : {
+      $Type          : 'Common.ValueListType',
+      CollectionPath : 'RequestStatusVH',
+      Parameters : [
+        {
+          $Type             : 'Common.ValueListParameterInOut',
+          LocalDataProperty : status,
+          ValueListProperty : 'status'
+        }
+      ]
+    },
+
+    Common.ValueListWithFixedValues : true
+  );
+};
+

@@ -8,7 +8,6 @@ service PurchaseService {
   entity ProductGroup            as projection on db.ProductGroup;
   entity RequestTypeProducts     as projection on db.RequestTypeProducts;
   entity PurchaseRequestCurrency as projection on db.PurchaseRequestCurrency;
-
   @cds.redirection.target
   @odata.draft.enabled
   entity PurchaseRequests as projection on db.PurchaseRequest;
@@ -21,11 +20,9 @@ service PurchaseService {
     totalAmount,
     currency,
     requester,
-    createdAt,
-    createdBy,
     product
   };
-
+  entity RequestStatusVH as projection on db.RequestStatusVH;
   @requires: 'approver'
   @odata.draft.enabled: false
   entity ApproverRequests as projection on db.PurchaseRequest {

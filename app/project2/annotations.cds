@@ -65,7 +65,7 @@ annotate service.ApproverRequests with @(
       Action       : 'PurchaseService.Approve',
       Label        : 'Approve',
       Determining  : true,
-
+      Criticality : 3,
       @UI.Hidden : {
         $edmJson : {
           $Ne : [
@@ -81,7 +81,7 @@ annotate service.ApproverRequests with @(
       Action       : 'PurchaseService.Reject',
       Label        : 'Reject',
       Determining  : true,
-
+      Criticality : 1,
       @UI.Hidden : {
         $edmJson : {
           $Ne : [
@@ -166,3 +166,4 @@ annotate service.ApproverRequests with actions {
   }
   Reject;
 };
+

@@ -1,7 +1,4 @@
-using { managed } from '@sap/cds/common';
 namespace app.model;
-
-
 
 entity RequestType {
   key requestType : String;
@@ -45,7 +42,7 @@ entity ApprovalProfileSetting {
 
 
 @odata.draft.enabled
-entity PurchaseRequest : managed {
+entity PurchaseRequest  {
       key ID            : UUID;
       requestType       : Association to RequestType;
       requester         : Association to Users;
@@ -69,3 +66,6 @@ entity PurchaseRequestCurrency {
       amount   : Decimal(15,2);
 }
 
+entity RequestStatusVH {
+  key status : String;
+}

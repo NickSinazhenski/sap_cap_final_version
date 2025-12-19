@@ -1,3 +1,9 @@
 approvalProfile,minAmount,maxAmount,requestType,role
-DefaultProfile,0,1000,Office,approver
-HighValue,1000,999999,IT,approver
+OfficeDefault,0,1000,Office Supplies,approver
+OfficeHigh,1000,5000,Office Supplies,approver
+FurnitureDefault,0,2000,Furniture,approver
+ITHardwareDefault,0,3000,IT Hardware,approver
+ITHardwareHigh,3000,999999,IT Hardware,approver
+ITSoftwareDefault,0,2000,IT Software & Licenses,approver
+NetworkingDefault,0,5000,Networking Hardware,approver
+NetworkingHigh,5000,999999,Networking Hardware,approver
